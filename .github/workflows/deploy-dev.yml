@@ -1,0 +1,19 @@
+name: Despliegue a Desarrollo (DEV)
+
+on:
+  push:
+    branches:
+      - dev  # Solo se ejecuta en la rama dev
+
+jobs:
+  desarrollo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Ejecutar pruebas de DEV
+        run: |
+          echo "¡Hola! Ejecutando pipeline en entorno DEV."
+          python --version
+          python -c "print('Prueba de desarrollo exitosa en rama dev.')"
