@@ -1,0 +1,12 @@
+name: Mi primer flujo CI
+
+on: [push]
+
+jobs:
+  verificar-codigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+      - name: Mostrar un mensaje de éxito
+        run: echo "¡Hola! GitHub Actions ejecutó este código automáticamente."
