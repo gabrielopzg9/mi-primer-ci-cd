@@ -1,22 +1,16 @@
-name: CI con Python
+name: CI con Docker
 
 on: [push]
 
 jobs:
-  probar-python:
+  construir-y-probar-docker:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar el código del repositorio
         uses: actions/checkout@v4
 
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
+      - name: Construir la imagen de Docker
+        run: docker build -t mi-app-python .
 
-      - name: Verificar la versión de Python instalada
-        run: python --version
-
-      - name: Ejecutar un script rápido de Python
-        run: |
-          python -c "print('¡Hola desde un script de Python ejecutado por CI/CD!'); resultado = 5 + 5; print(f'El cálculo automático dio: {resultado}')"
+      - name: Ejecutar el contenedor Docker
+        run: docker run --rm mi-app-python
