@@ -1,12 +1,24 @@
-name: Mi primer flujo CI
+name: CI con Python
 
 on: [push]
 
 jobs:
-  verificar-codigo:
+  probar-python:
     runs-on: ubuntu-latest
     steps:
-      - name: Descargar el código
+      - name: Descargar el código del repositorio
         uses: actions/checkout@v4
-      - name: Mostrar un mensaje de éxito
-        run: echo "¡Hola! GitHub Actions ejecutó este código automáticamente."
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verificar la versión de Python instalada
+        run: python --version
+
+      - name: Ejecutar un script rápido de Python
+        run: |
+          python -c "print('¡Hola desde un script de Python ejecutado por CI/CD!')"
+          resultado = 5 + 5
+          print(f'El cálculo automático dio: {resultado}')
