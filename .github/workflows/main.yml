@@ -19,6 +19,4 @@ jobs:
 
       - name: Ejecutar un script rápido de Python
         run: |
-          python -c "print('¡Hola desde un script de Python ejecutado por CI/CD!')"
-          resultado = 5 + 5
-          print(f'El cálculo automático dio: {resultado}')
+          python -c "print('¡Hola desde un script de Python ejecutado por CI/CD!'); resultado = 5 + 5; print(f'El cálculo automático dio: {resultado}')"
