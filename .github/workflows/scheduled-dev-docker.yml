@@ -1,9 +1,9 @@
-name: Docker Programado DEV a las 13:15 Chile
+name: Docker Programado DEV a las 13:20 Chile
 
 on:
   schedule:
-    # 13:15 de Chile en horario UTC-4 son las 17:15 UTC
-    - cron: '15 17 * * *'
+    # 13:20 de Chile en horario de invierno (UTC-4) son las 17:20 UTC
+    - cron: '20 17 * * *'
   workflow_dispatch: # Mantiene el botón para probarlo manualmente cuando quieras
 
 jobs:
